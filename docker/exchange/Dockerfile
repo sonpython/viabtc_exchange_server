@@ -3,6 +3,7 @@ MAINTAINER Sergey Dolin <sergey@s4y.solutions>
 
 # Install all necessary for building dependecnies, read more about
 # depencensies in readme section in the root of the repo.
+#ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y \
@@ -14,9 +15,11 @@ RUN apt-get update && \
       wget \
       make \
       cmake \
-      gcc \
+      gcc-6-base \
       g++ \
       python \
+      autoconf \
+      libtool \
       libev-dev \
       libmpdec-dev \
       libjansson-dev \
@@ -24,7 +27,6 @@ RUN apt-get update && \
       libgnutls-dev \
       libmysqlclient-dev \
       libhttp-parser-dev \
-#      libcurl4-openssl-dev \
 			libldap2-dev \
 			libkrb5-dev \
 			libalberta-dev  \
@@ -36,6 +38,8 @@ RUN apt-get update && \
 			librtmp-dev &&\
     rm -rf /var/lib/apt/lists/*
 
+RUN gcc -v
+
 RUN wget https://codeload.github.com/curl/curl/tar.gz/curl-7_57_0 -O curl-7.57.0.tar.gz &&\
 	tar xzvf curl-7.57.0.tar.gz &&\
 	rm -rf curl-7.57.0.tar.gz &&\
@@ -46,13 +50,12 @@ RUN wget https://codeload.github.com/curl/curl/tar.gz/curl-7_57_0 -O curl-7.57.0
 	make &&\
 	make install
 
-RUN git clone https://github.com/edenhill/librdkafka.git \
-#RUN wget https://codeload.github.com/edenhill/librdkafka/tar.gz/v0.11.3 -O librdkafka.tar.gz \
-#    && tar xzvf librdkafka.tar.gz \
+#RUN git clone https://github.com/edenhill/librdkafka.git \
+RUN wget https://codeload.github.com/edenhill/librdkafka/tar.gz/v0.11.3 -O librdkafka.tar.gz \
+    && tar xzvf librdkafka.tar.gz \
     && ls -lah \
     && cd librdkafka* \
     && ./configure \
-#    && sed -i "s/WITH_LDS=/#WITH_LDS=/g" Makefile.config \
     && make \
     && make install \
     && cd / \
