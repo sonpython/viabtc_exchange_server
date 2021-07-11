@@ -229,12 +229,12 @@ static int load_market(redisContext *context, struct market_info *info)
     return 0;
 }
 
-static struct market_info *create_market(const char *market, mpd_t *price = mpd_zero)
+static struct market_info *create_market(const char *market, mpd_t *price)
 {
     struct market_info *info = malloc(sizeof(struct market_info));
     memset(info, 0, sizeof(struct market_info));
     info->name = strdup(market);
-    info->last = mpd_qncopy(price);
+    info->last = mpd_qncopy(mpd_zero);
     dict_types dt;
 
     memset(&dt, 0, sizeof(dt));
