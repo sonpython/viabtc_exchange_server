@@ -234,7 +234,7 @@ static struct market_info *create_market(const char *market, mpd_t *price)
     struct market_info *info = malloc(sizeof(struct market_info));
     memset(info, 0, sizeof(struct market_info));
     info->name = strdup(market);
-    info->last = mpd_qncopy(mpd_zero);
+    info->last = mpd_qncopy(price);
     dict_types dt;
 
     memset(&dt, 0, sizeof(dt));
