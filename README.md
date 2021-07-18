@@ -11,6 +11,11 @@ docker-compose up -d
 - accesshttp port 8080
 - accessws port 8090
 
+for Chrome on mac, run with bellow command to disable CORS security:
+```
+open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
+```
+
 ## Architecture
 
 ![Architecture](https://user-images.githubusercontent.com/1209350/32476113-5ffc622a-c3b0-11e7-9755-924f17bcc167.jpeg)
