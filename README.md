@@ -2,6 +2,13 @@
 
 ViaBTC Exchange Server is a trading backend with high-speed performance, designed for cryptocurrency exchanges. It can support up to 10000 trades every second and real-time user/market data notification through websocket.
 
+## Docker support
+
+```shell
+cd docker
+docker-compose up -d
+```
+
 ## Architecture
 
 ![Architecture](https://user-images.githubusercontent.com/1209350/32476113-5ffc622a-c3b0-11e7-9755-924f17bcc167.jpeg)
