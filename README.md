@@ -8,6 +8,8 @@ ViaBTC Exchange Server is a trading backend with high-speed performance, designe
 cd docker
 docker-compose up -d
 ```
+- accesshttp port 8080
+- accessws port 8090
 
 ## Architecture
 
