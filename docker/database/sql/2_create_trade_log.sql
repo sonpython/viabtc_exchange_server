@@ -1,3 +1,6 @@
+create database trade_log;
+USE trade_log;
+
 CREATE TABLE `slice_balance_example` (
     `id`            INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `user_id`       INT UNSIGNED NOT NULL,
