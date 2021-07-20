@@ -1,0 +1,3 @@
+CREATE USER 'exchange'@'%' IDENTIFIED BY 'exchange';
+GRANT ALL PRIVILEGES ON *.* TO 'exchange'@'%'  WITH GRANT OPTION;
+FLUSH PRIVILEGES;

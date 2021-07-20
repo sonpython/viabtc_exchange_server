@@ -2,7 +2,7 @@ version: '3.6'
 services:
 
   mysql:
-    build: mysql
+    build: database
     image: bitlum/exchange-mysql
     container_name: exchange_mysql
     restart: always
