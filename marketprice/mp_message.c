@@ -365,6 +365,7 @@ static int init_market(void)
         const char *name = json_string_value(json_object_get(item, "name"));
         log_stderr("init market %s", name);
         struct market_info *info = create_market(name, mpd_zero);
+//        set to zero when init
         if (info == NULL) {
             log_error("create market %s fail", name);
             json_decref(r);
